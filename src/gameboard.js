@@ -21,7 +21,7 @@ class Gameboard {
   }
 
   placeShip(c1, c2) {
-    if (Math.abs(c1[1] - c1[0]) > 0 && Math.abs(c2[1] - c2[0]) > 0) {
+    if (Math.abs(c1[1] - c2[1]) > 0 && Math.abs(c1[0] - c2[0]) > 0) {
       throw new Error("Ship must be a line");
     }
 
@@ -65,6 +65,39 @@ class Gameboard {
     } else {
       this.attackGrid[c[0]][c[1]] = 0;
     }
+  }
+
+  shipCells(head, length, orientation) {
+    let hx = head[0];
+    let hy = head[1];
+    let cells = [];
+    let valid = true;
+
+    if (orientation === "vertical") {
+      for (let y = hy; y < hy + length && y < 10; y++) {
+        cells.push([hx, y]);
+        if (this.shipGrid[hx][y]) {
+          valid = false;
+        }
+      }
+
+      if (hy + length > 10) {
+        valid = false;
+      }
+    } else {
+      for (let x = hx; x < hx + length && x < 10; x++) {
+        cells.push([x, hy]);
+        if (this.shipGrid[x][hy]) {
+          valid = false;
+        }
+      }
+
+      if (hx + length > 10) {
+        valid = false;
+      }
+    }
+
+    return { valid, cells };
   }
 
   shipsSunk() {

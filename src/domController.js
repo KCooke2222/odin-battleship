@@ -15,7 +15,7 @@ function clearPreview(container) {
   });
 }
 
-function renderGame(player, enemy) {
+function renderGame(playerGrid, enemyGrid, player, enemy) {
   const pShipGrid = player.gameboard.getShipGrid();
   const pAttackGrid = player.gameboard.getAttackGrid();
 
@@ -34,13 +34,13 @@ function renderGrid(container, shipGrid, attackGrid, showShips) {
     let x = cell.dataset.x;
     let y = cell.dataset.y;
 
-    cell.className = "";
+    cell.className = "cell";
 
     if (attackGrid[x][y] === 1) {
       cell.classList.add("hit");
     } else if (attackGrid[x][y] === 0) {
       cell.classList.add("miss");
-    } else if (showShips && shipGrid[x][y] !== null) {
+    } else if (shipGrid[x][y] !== null) {
       cell.classList.add("ship");
     }
   }
