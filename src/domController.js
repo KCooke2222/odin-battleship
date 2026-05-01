@@ -40,7 +40,7 @@ function renderGrid(container, shipGrid, attackGrid, showShips) {
       cell.classList.add("hit");
     } else if (attackGrid[x][y] === 0) {
       cell.classList.add("miss");
-    } else if (shipGrid[x][y] !== null) {
+    } else if (showShips && shipGrid[x][y] !== null) {
       cell.classList.add("ship");
     }
   }

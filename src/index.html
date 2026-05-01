@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack Starter</title>
+    <title>BATTLESHIP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div class="player-grid"></div>
-    <div class="status"><p>place ships</p></div>
-    <button class="restart">restart</button>
-    <div class="enemy-grid"></div>
+    <div class="container">
+      <h1 class="title">BATTLESHIP</h1>
+      <div class="boards">
+        <div class="board-wrapper">
+          <p class="board-label">PLAYER</p>
+          <div class="player-grid"></div>
+        </div>
+        <div class="center-panel">
+          <div class="status"><p>PLACE SHIPS</p></div>
+          <p class="hint">R to rotate</p>
+          <button class="restart">RESTART</button>
+        </div>
+        <div class="board-wrapper">
+          <p class="board-label">ENEMY</p>
+          <div class="enemy-grid"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
