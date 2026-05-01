@@ -33,3 +33,16 @@ test("ships sunk", () => {
 
   expect(gameboard.shipsSunk()).toBe(true);
 });
+
+test("ships not sunk", () => {
+  const gameboard = new Gameboard();
+
+  gameboard.placeShip([0, 0], [0, 2]);
+  gameboard.placeShip([1, 0], [1, 2]);
+
+  gameboard.receiveAttack([0, 0]);
+
+  gameboard.receiveAttack([0, 2]);
+
+  expect(gameboard.shipsSunk()).toBe(false);
+});

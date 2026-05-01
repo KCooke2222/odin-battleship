@@ -33,7 +33,7 @@ class Gameboard {
       throw new Error("Coordinates out of bounds");
     }
 
-    let length = Math.max(Math.abs(c1[1] - c1[0]), Math.abs(c2[1] - c2[0])) + 1;
+    let length = Math.max(Math.abs(c1[0] - c2[0]), Math.abs(c1[1] - c2[1])) + 1;
 
     let ship = new Ship(length);
 
@@ -102,7 +102,7 @@ class Gameboard {
 
   shipsSunk() {
     let res = true;
-    for (ship of this.ships) {
+    for (let ship of this.ships) {
       if (!ship.isSunk()) {
         res = false;
       }

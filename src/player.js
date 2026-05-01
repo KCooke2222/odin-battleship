@@ -12,8 +12,18 @@ class Player {
     }
   }
 
-  attack(enemyBoard, coord) {
-    enemyBoard.receiveAttack(coord);
+  randomAttack(player) {
+    let success = false;
+
+    while (!success) {
+      const x = Math.floor(Math.random() * 10);
+      const y = Math.floor(Math.random() * 10);
+
+      try {
+        player.gameboard.receiveAttack([x, y]);
+        success = true;
+      } catch (error) {}
+    }
   }
 
   generateShips() {

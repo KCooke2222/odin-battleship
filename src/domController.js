@@ -58,9 +58,15 @@ function initGrid(container) {
   }
 }
 
+function updateStatus(status, mainStatus) {
+  const mainStatusText = status.querySelector("p");
+  mainStatusText.innerText = mainStatus;
+}
+
 module.exports = {
   renderPreview,
   clearPreview,
   renderGame,
   initGrid,
+  updateStatus,
 };

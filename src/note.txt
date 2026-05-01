@@ -1,0 +1,3 @@
+next do attack logic all on enemy click
+make sure game wins
+then clean up ui a bit
