@@ -11,6 +11,7 @@ function init() {
   const playerGrid = document.querySelector(".player-grid");
   const enemyGrid = document.querySelector(".enemy-grid");
   const status = document.querySelector(".status");
+  const restartBtn = document.querySelector(".restart");
 
   const player = new Player();
   const enemy = new Player("enemy");
@@ -128,6 +129,10 @@ function init() {
     );
 
     renderPreview(playerGrid, cells, valid);
+  });
+
+  restartBtn.addEventListener("click", (event) => {
+    window.location.reload();
   });
 
   initGrid(playerGrid);
